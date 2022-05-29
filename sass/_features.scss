@@ -1,0 +1,43 @@
+.features {
+  grid-column: center-start / center-end;
+
+  margin: 15rem 0;
+
+  display: grid;
+
+  // grid-template-columns: repeat(3, 1fr); //* default state
+
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  //? => ☝🏻 this is for responsiveness w/o media query!
+
+  /*
+   grid-template-rows: auto auto;
+   No need to include g-t-r since they will be automatically arranged inside the ✌🏻 dummy sub grid ✌🏻
+  */
+
+  gap: 6rem;
+
+  align-items: flex-start;
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-gap: 1.5rem 2.5rem;
+
+  &__icon {
+    fill: $color-primary;
+    width: 4.5rem;
+    height: 4.5rem;
+
+    transform: translateY(-1rem);
+    //? => to shift the icons 10px above initial position.
+
+    grid-row: 1 / span 2;
+    //? => We use span 2 instead of -1 since we're dealing with implicit grids!
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
+}
